@@ -1,0 +1,75 @@
+<p-table [value]="nfeStatus">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Autorizador</th>
+            <th>Autorização</th>
+            <th>Retorno Autorização</th>
+            <th>Inutilização</th>
+            <th>Consulta Protocolo</th>
+            <th>Status Serviço</th>
+            <th>Consulta Cadastro</th>
+            <th>Recepção Evento</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-nfeStatusItem>
+        <tr >
+            <td><div class="p-text-center">{{nfeStatusItem.state}}</div></td>
+            <!-- Autorização -->
+            <td [ngSwitch]=nfeStatusItem.authorization>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+            <!-- Retorno Autorização -->
+            <td [ngSwitch]=nfeStatusItem.authorizationReturn>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+            <!-- Inutilização -->
+            <td [ngSwitch]=nfeStatusItem.cancelled>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+            <!-- Consulta Protocolo -->
+            <td [ngSwitch]=nfeStatusItem.protocolQuery>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+            
+            <!-- Status Serviço -->
+            <td [ngSwitch]=nfeStatusItem.statusService>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+            <!-- Consulta Cadastro -->
+            <td [ngSwitch]=nfeStatusItem.registrationQuery>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+            <!-- Recepção Evento -->
+            <td [ngSwitch]=nfeStatusItem.eventReceiver>
+                <span *ngSwitchCase="'red'" class="p-badge p-badge-danger"></span>
+                <span *ngSwitchCase="'green'" class="p-badge p-badge-success"></span>
+                <span *ngSwitchCase="'yellow'" class="p-badge p-badge-warning"></span>
+                <span *ngSwitchDefault>-</span>
+            </td>
+
+        </tr>
+    </ng-template>
+</p-table>
